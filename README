@@ -1,0 +1,29 @@
+Course project - Online Decision Making
+Comparison of different ODM models on trading
+
+Data Preparation
+We use AlphaVantage API to draw financial data. We chose 5 different stocks
+because the API only allows 5 pull operations in a minute. These stocks are
+determined as AAPL, GOOGL, GOLD, SBUX and MSFT. We ignored some
+aspects of real trading environments for simplicity since main aim of the project
+was to investigate online decision making approaches. For this reason terms
+such as bidding and asking are ignored, and we only used the Adjusted Close
+price of daily data to give trading orders. We used 1000 trading days. Orders are
+executed each day. We also ignored ”shorting” option for computational simplicity.
+The agents are only allowed to buy stocks. Initial balance is determined
+as $10000.
+
+Agent 1: FTL - maximize the average profit
+Agent 2: FTL - maximize the number of rounds resulted in profit
+Agent 3: FTPL with low noise
+Agent 4: FTPL with medium level noise
+Agent 5: FTPL with high noise
+Agent 6: MWA algorithm
+Agent 7: OGD algorithm
+Agent 8: UCB algorithm (treating each stock as an arm)
+Agent 9: UCB algorithm with a different confidence interval
+Agent 10: UCB algorithm (treating each agent as an arm) - Agents to choose from are the first 9 agents
+Agent 11: MWA algorithm on agents - Agents to choose from are the first 9 agents
+Agent 12: MWA++ - Agent 11 chooses the best agent and invests all his/her money according to best
+agent’s strategy. Instead, Agent 12 distributes its money over different agents
+where the proportions are determined by MWA over the agents.
